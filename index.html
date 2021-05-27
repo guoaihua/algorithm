@@ -6,29 +6,19 @@
 
 </head>
 <body>
-<script>
-	var longestPalindrome = function(s) {
-		if(!s.length){
-			return;
-		}
+<script type="module">
+	import isValid from './src/leecode/leecode-20.js';
+	console.log(isValid("()[]{}"));
+	import MinStack from './src/leecode/leecode-155.js';
 
-		var len = s.length;
-		var res = '';
-		//2 层循环，遍历获取所有的子串
-		for(var i =0;i<len;i++){
-			for (var j =  i+1;j<=len;j++){
-				var str = s.slice(i,j);
-				var f = str.split("").reverse().join();
-				console.log(str.split("").reverse().join() === str);
-				if( f=== str){
-
-					res = str.length > res.length ? str:res
-				}
-			}
-		}
-		return res
-	};
-	console.log(longestPalindrome("babad"));
+	var minStack = new MinStack();
+		minStack.push(1);
+		minStack.push(2);
+		minStack.pop();
+		console.log(minStack.getMin());  
+		minStack.pop();
+		console.log(minStack.getMin());
+		console.log(minStack.top());
 </script>
 
 </body>
